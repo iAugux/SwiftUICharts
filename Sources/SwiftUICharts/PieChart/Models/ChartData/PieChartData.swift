@@ -44,7 +44,7 @@ public final class PieChartData: CTPieChartDataProtocol, Publishable {
         dataSets: PieDataSet,
         metadata: ChartMetadata,
         chartStyle: PieChartStyle = PieChartStyle(),
-        noDataText: Text = Text("No Data")
+        noDataText: any View = Text("No Data")
     ) {
         self.dataSets = dataSets
         self.metadata = metadata

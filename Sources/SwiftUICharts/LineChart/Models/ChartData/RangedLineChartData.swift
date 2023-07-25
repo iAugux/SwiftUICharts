@@ -54,7 +54,7 @@ public final class RangedLineChartData: CTLineChartDataProtocol, GetDataProtocol
         xAxisLabels: [String]? = nil,
         yAxisLabels: [String]? = nil,
         chartStyle: LineChartStyle = LineChartStyle(),
-        noDataText: Text = Text("No Data")
+        noDataText: any View = Text("No Data")
     ) {
         self.dataSets = dataSets
         self.metadata = metadata

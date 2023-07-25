@@ -54,7 +54,7 @@ public final class HorizontalBarChartData: CTHorizontalBarChartDataProtocol, Get
         yAxisLabels: [String]? = nil,
         barStyle: BarStyle = BarStyle(),
         chartStyle: BarChartStyle = BarChartStyle(),
-        noDataText: Text = Text("No Data")
+        noDataText: any View = Text("No Data")
     ) {
         self.dataSets = dataSets
         self.metadata = metadata

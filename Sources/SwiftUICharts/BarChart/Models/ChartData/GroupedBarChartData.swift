@@ -63,7 +63,7 @@ public final class GroupedBarChartData: CTMultiBarChartDataProtocol, GetDataProt
         yAxisLabels: [String]? = nil,
         barStyle: BarStyle = BarStyle(),
         chartStyle: BarChartStyle = BarChartStyle(),
-        noDataText: Text = Text("No Data")
+        noDataText: any View = Text("No Data")
     ) {
         self.dataSets = dataSets
         self.groups = groups
