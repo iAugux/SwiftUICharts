@@ -31,7 +31,7 @@ public final class HorizontalBarChartData: CTHorizontalBarChartDataProtocol, Get
     public var subscription = SubscriptionSet().subscription
     public let touchedDataPointPublisher = PassthroughSubject<DataPoint,Never>()
     
-    public final var noDataText: Text
+    public final var noDataText: any View
     public final let chartType: (chartType: ChartType, dataSetType: DataSetType)
     
     public var disableAnimation = false

@@ -27,7 +27,7 @@ public final class RangedLineChartData: CTLineChartDataProtocol, GetDataProtocol
     @Published public final var viewData: ChartViewData
     @Published public final var infoView: InfoViewData<RangedLineChartDataPoint> = InfoViewData()
     
-    public final var noDataText: Text
+    public final var noDataText: any View
     public final var chartType: (chartType: ChartType, dataSetType: DataSetType)
     
     @Published public final var extraLineData: ExtraLineData?

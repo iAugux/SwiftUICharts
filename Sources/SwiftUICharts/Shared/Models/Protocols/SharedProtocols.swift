@@ -63,8 +63,8 @@ public protocol CTChartData: ObservableObject, Identifiable {
     /**
      Customisable `Text` to display when where is not enough data to draw the chart.
      */
-    var noDataText: Text { get set }
-    
+    var noDataText: any View { get set }
+
     /**
      Holds data about the charts type.
      

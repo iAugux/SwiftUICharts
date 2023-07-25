@@ -36,7 +36,7 @@ public final class GroupedBarChartData: CTMultiBarChartDataProtocol, GetDataProt
     public var subscription = SubscriptionSet().subscription
     public let touchedDataPointPublisher = PassthroughSubject<DataPoint,Never>()
     
-    public final var noDataText: Text
+    public final var noDataText: any View
     public final var chartType: (chartType: ChartType, dataSetType: DataSetType)
     
     final var groupSpacing: CGFloat = 0

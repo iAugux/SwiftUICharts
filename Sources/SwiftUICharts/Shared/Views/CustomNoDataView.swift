@@ -19,6 +19,6 @@ public struct CustomNoDataView<T>: View where T: CTChartData {
     }
     
     public var body: some View {
-        chartData.noDataText
+        AnyView(chartData.noDataText)
     }
 }
