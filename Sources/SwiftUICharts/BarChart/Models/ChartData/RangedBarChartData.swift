@@ -24,7 +24,8 @@ public final class RangedBarChartData: CTRangedBarChartDataProtocol, GetDataProt
     @Published public final var legends: [LegendData]
     @Published public final var viewData: ChartViewData
     @Published public final var infoView: InfoViewData<RangedBarDataPoint> = InfoViewData()
-    
+    @Published public final var showAsDotWhenNoRange = false // e.g: when "120-120" has no height, we set the height to be equal to the width if the condition is true.
+
     @Published public final var extraLineData: ExtraLineData?
     
     // Publishable
@@ -54,6 +55,7 @@ public final class RangedBarChartData: CTRangedBarChartDataProtocol, GetDataProt
         yAxisLabels: [String]? = nil,
         barStyle: BarStyle = BarStyle(),
         chartStyle: BarChartStyle = BarChartStyle(),
+        showAsDotWhenNoRange: Bool = false,
         noDataText: any View = Text("No Data")
     ) {
         self.dataSets = dataSets
@@ -63,6 +65,7 @@ public final class RangedBarChartData: CTRangedBarChartDataProtocol, GetDataProt
         self.barStyle = barStyle
         self.chartStyle = chartStyle
         self.noDataText = noDataText
+        self.showAsDotWhenNoRange = showAsDotWhenNoRange
         
         self.legends = [LegendData]()
         self.viewData = ChartViewData()

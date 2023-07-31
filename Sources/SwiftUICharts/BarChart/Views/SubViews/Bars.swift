@@ -492,8 +492,8 @@ internal struct RangedBarChartColoursCell<CD:RangedBarChartData>: View {
                 .fill(LinearGradient(gradient: Gradient(colors: colours),
                                      startPoint: startPoint,
                                      endPoint: endPoint))
-                .frame(width: BarLayout.barWidth(geo.size.width, chartData.barStyle.barWidth))
-                .frame(height: frameAnimationValue(computedValue, height: geo.size.height))
+                .frame(width: width(geo))
+                .frame(height: frameAnimationValue(computedValue, height: geo.size.height, geo: geo))
                 .position(x: barSize.midX,
                           y: chartData.getBarPositionX(dataPoint: dataPoint, height: barSize.height))
                 .animation(.default, value: chartData.dataSets)
@@ -508,18 +508,25 @@ internal struct RangedBarChartColoursCell<CD:RangedBarChartData>: View {
                                                                         formatter: chartData.infoView.touchFormatter))
         }
     }
-    
+
     var computedValue: Double {
         dataPoint.upperValue - dataPoint.lowerValue
     }
-    
-    func frameAnimationValue(_ value: Double, height: CGFloat) -> CGFloat {
-        let value = BarLayout.barHeight(height, Double(value), chartData.range)
+
+    func frameAnimationValue(_ value: Double, height: CGFloat, geo: GeometryProxy) -> CGFloat {
+        var value = BarLayout.barHeight(height, Double(value), chartData.range)
+        if chartData.showAsDotWhenNoRange {
+            value = max(width(geo), value)
+        }
         if chartData.disableAnimation {
             return value
         } else {
             return startAnimation ? value : 0
         }
+    }
+
+    private func width(_ geo: GeometryProxy) -> CGFloat {
+        BarLayout.barWidth(geo.size.width, chartData.barStyle.barWidth)
     }
 }
 
